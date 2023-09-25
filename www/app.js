@@ -218,6 +218,8 @@ const App = Vue.createApp({
 			if (Object.keys(peers).length > 0) {
 				const composeElement = document.getElementById("compose");
 				this.sendDataMessage("chat", this.typing);
+				// this.typing = await testClass.get_rand()
+				// this.sendDataMessage("chat", this.typing);
 				this.typing = "";
 				composeElement.textContent = "";
 				composeElement.blur;

@@ -1,3 +1,6 @@
+// python stuff
+import { python } from 'pythonia';
+
 const express = require("express");
 const path = require("path");
 const http = require("http");
@@ -33,3 +36,10 @@ app.get("/legal", (req, res) => res.sendFile(path.join(__dirname, "www/legal.htm
 app.get("/:room", (req, res) => res.sendFile(path.join(__dirname, "www/app.html")));
 
 io.sockets.on("connection", signallingServer);
+
+const test = await python('./www/test.py')
+const testClass = await test.testClass()
+const rand = await testClass.get_rand()
+console.log(rand);
+
+python.exit();
